@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/css/style.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.css' />
+  <title>Document</title>
+  <style>
+    #content {
+      /* position: relative; */
+      height: 50%;
+    }
+
+    .nav-background {
+      background-color: rgb(242, 208, 154);
+      transition: background-color 0.3s;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <section id="navbar" class="fixed-top">
+    <nav class=" d-flex justify-content-between">
+      <ul class="list-side">
+        <li class="me-auto"><a href="result/main.html"><img src="image/icon/icon.jpg" alt="" width="20px"> 閣調</a></li>
+      </ul>
+      <ul class="list-side d-none d-sm-flex">
+
+        <li><a href="result/aboutus.html">About</a></li>
+        <li><a href="result/Product.html">Product</a></li>
+        <li><a href="result/Designer.html">Designer</a></li>
+        <li><a href="result/CallUs.html">CallUs</a> </li>
+      </ul>
+    </nav>
+  </section> -->
+
+
+  <section id="navbar" class="fixed-top">
+
+    <nav class="navbar navbar-expand-sm navbar-light py-0">
+      <div class="container-fluid">
+        <ul class="list-side">
+          <!-- navbar-brand -->
+          <li><a href="result/main.html"><img src="image/icon/icon.jpg" alt="" width="50px"> 閣調</a>
+          </li>
+        </ul>
+
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav ms-auto  list-side">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="result/aboutus.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="result/Product.html">Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="result/Designer.html">Designer</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="result/CallUs.html">CallUs</a>
+            </li>
+          </ul>
+          <!-- <span class="navbar-text">
+          Navbar text with an inline element
+        </span> -->
+        </div>
+      </div>
+    </nav>
+  </section>
+
+
+  <section id="content">
+  </section>
+
+  <section id="footer">
+    <h1>END</h1>
+  </section>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js'></script>
+  <script>
+    $(document).ready(function () {
+      $.get("result/main.html", function (data) {
+        $("#content").html(data);
+      });
+      $(function () {
+        $('.list-side li').click(function () {
+          let link = $(this),
+            alink = link.find('a').attr('href');
+          if ("-1" == alink.search("http://")) {
+            $.get(alink, function (data) {
+              $("#content").html(data);
+            });
+            return false
+          }
+        })
+      })
+      $(window).scroll(function () {
+        $('#navbar').toggleClass('nav-background', $(this).scrollTop() != 0);
+      });
+    });
+  </script>
+
+</body>
+
+</html>

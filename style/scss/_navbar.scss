@@ -1,0 +1,33 @@
+#navbar {
+  .nav-background {
+    background-color: rgb(242, 208, 154);
+  }
+  // height: 50px;
+  .navbar-nav {
+    --bs-nav-link-padding-y: 0rem;
+    > li {
+      line-height: 50px !important;
+    }
+  }
+  .container-fluid {
+    padding: 0;
+  }
+  .navbar-collapse {
+    // height: 50px;
+  }
+  // background-color: rgb(242, 208, 154);
+  > ul {
+    // justify-content: center;
+    height: 50px !important;
+  }
+  > li {
+    padding: 0;
+    height: 50px !important;
+    align-items: center;
+    line-height: 50;
+  }
+  nav {
+    // background-color: rgb(242, 208, 154);
+    // height: 50px;
+  }
+}
